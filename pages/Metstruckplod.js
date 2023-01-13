@@ -1,9 +1,12 @@
 import {Surface, TextInput, Button} from 'react-native-paper';
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {SafeAreaView, StyleSheet, View, ScrollView,Text} from 'react-native';
 import DropDown from 'react-native-paper-dropdown';
 import DateField from 'react-native-datefield';
 import moment from 'moment';
+import {openDatabase} from 'react-native-sqlite-storage';
+
+var db = openDatabase({name:'Metsplods.db'});
 
 
 const Metstruckplod = () => {
@@ -12,12 +15,62 @@ const Metstruckplod = () => {
   const [showDropDown2, setShowDropDown2] = useState(false);
   const [showDropDown3, setShowDropDown3] = useState(false);
 
-  const [truck, setTruck] = useState('');
+  const [truck, setTruck] =useState('');  
   const [hour, setHour] = useState('');
-  const [shift, setShift] = useState('');
+  const [shift, setShift] =useState('');
   const [crew, setCrew] = useState('');
-  const [text, setText] = React.useState('');
-  const [text1, setText1] = React.useState('');
+  const [text, setText] = useState('');
+  const [text1, setText1] =useState('');
+  const[date,setDate]=useState(new Date())
+
+  useEffect(() => {
+    db.transaction(function (txn) {
+      txn.executeSql(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='user_truckdetails1'",
+        [],
+        function (tx, res) {
+          console.log('item:', res.rows.length);
+          if (res.rows.length == 0) {
+            txn.executeSql('DROP TABLE IF EXISTS user_truckdetails1', []);
+            txn.executeSql(
+              'CREATE TABLE IF NOT EXISTS user_truckdetails1(operator_id INTEGER PRIMARY KEY AUTOINCREMENT,Engine_hours INT(15),operator_name VARCHAR(25),truck_number VARCHAR(25),working_hours VARCHAR(30),shift VARCHAR(25),crew VARCHAR(30),date VARCHAR(25))',
+              [],
+            );
+          }
+        },
+      );
+    });
+  }, []);
+
+  const insertData = () => {
+
+    
+    db.transaction(function (tx) {
+      tx.executeSql(
+        'INSERT INTO user_truckdetails1(Engine_hours,operator_name,truck_number,working_hours,shift,crew,date) VALUES (?,?,?,?,?,?,?)',
+        [text,text1,truck,hour,shift,crew,date],
+        (tx, results) => {
+          console.log('Results', results.rowsAffected);
+          if (results.rowsAffected > 0) {
+            Alert.alert('Truck Details Added Successfully.....');
+          } else Alert.alert('Failed....');
+        },
+      );
+    });
+
+    viewStudent();
+  };
+
+  const viewStudent = () => {
+    db.transaction(tx => {
+      tx.executeSql('SELECT * FROM user_truckdetails1', [], (tx, results) => {
+        var temp = [];
+        for (let i = 0; i < results.rows.length; ++i)
+          temp.push(results.rows.item(i));
+        console.log(temp);
+      });
+    });
+  };
 
   const truckList = [
     {
@@ -129,17 +182,7 @@ const Metstruckplod = () => {
       <Surface style={styles.containerStyle}>
         <SafeAreaView style={styles.safeContainerStyle}>
           <ScrollView style={styles.scrollView}>
-            <DropDown
-              label={'TruckNumber'}
-              mode={'outlined'}
-              visible={showDropDown}
-              showDropDown={() => setShowDropDown(true)}
-              onDismiss={() => setShowDropDown(false)}
-              value={truck}
-              setValue={setTruck}
-              list={truckList}
-            />
-            <View style={styles.spacerStyle} />
+           
             <TextInput
               label="Engine Hours SOS"
               value={text}
@@ -155,7 +198,7 @@ const Metstruckplod = () => {
               labelYear="YY"
               defaultValue={new Date()}
               styleInput={styles.inputBorder}
-              onSubmit={(value) => console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))}
+              onChangeText={(date) => setDate(moment(date).format("DD/MM/YYYY"))}
               
             />
             <View style={styles.spacerStyle} />
@@ -167,13 +210,24 @@ const Metstruckplod = () => {
             />
             <View style={styles.spacerStyle} />
             <DropDown
+              label={'TruckNumber'}
+              mode={'outlined'}
+              visible={showDropDown}
+              showDropDown={() => setShowDropDown(true)}
+              onDismiss={() => setShowDropDown(false)}
+              value={truck}
+              setValue={text=>setTruck(text)}
+              list={truckList}
+            />
+          
+            <DropDown
               label={'Hours Worked'}
               mode={'outlined'}
               visible={showDropDown1}
               showDropDown={() => setShowDropDown1(true)}
               onDismiss={() => setShowDropDown1(false)}
               value={hour}
-              setValue={setHour}
+              setValue={text=>setHour(text)}
               list={hours}
             />
             <View style={styles.spacerStyle} />
@@ -184,7 +238,7 @@ const Metstruckplod = () => {
               showDropDown={() => setShowDropDown2(true)}
               onDismiss={() => setShowDropDown2(false)}
               value={shift}
-              setValue={setShift}
+              setValue={text=>setShift(text)}
               list={Shifts}
             />
             <View style={styles.spacerStyle} />
@@ -195,13 +249,13 @@ const Metstruckplod = () => {
               showDropDown={() => setShowDropDown3(true)}
               onDismiss={() => setShowDropDown3(false)}
               value={crew}
-              setValue={setCrew}
+              setValue={text=>setCrew(text)}
               list={crewlist}
             />
             <View style={styles.spacerStyle} />
 
             <View style={styles.spacerStyle} />
-            <Button mode={'outlined'} textColor={'black'} uppercase={true}>
+            <Button mode={'outlined'} textColor={'black'} uppercase={true} onPress={insertData}>
               Submit
             </Button>
           </ScrollView>

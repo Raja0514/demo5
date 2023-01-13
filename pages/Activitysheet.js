@@ -12,7 +12,7 @@ import {
 
 import {openDatabase} from 'react-native-sqlite-storage';
 
-var db = openDatabase({name: 'SchoolDatabase.db'});
+var db = openDatabase({name:'Metsplod.db'});
 
 const Activitysheet = () => {
   const [S_Name, setName] = useState('');
