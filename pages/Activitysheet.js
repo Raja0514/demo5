@@ -1,111 +1,76 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import {StyleSheet, Text, View, Alert} from 'react-native';
+import DragAndDrop from 'volkeno-react-native-drag-drop';
 
-import {
-  SafeAreaView,
-  Text,
-  View,
-  StyleSheet,
-  Alert,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
-
-import {openDatabase} from 'react-native-sqlite-storage';
-
-var db = openDatabase({name:'Metsplod.db'});
+import {Button} from 'react-native-paper';
 
 const Activitysheet = () => {
-  const [S_Name, setName] = useState('');
-  const [S_Phone, setPhone] = useState();
-  const [S_Address, setAddress] = useState('');
+  const [items, setItems] = React.useState([
+    {id: 1, text: 'Pre-start'},
+    {id: 2, text: 'Pre-start checks'},
+    {id: 3, text: 'Crib'},
+    {id: 4, text: 'Hauling (Should be calculated based on Item 2)'},
+    {id: 5, text: 'Daily service'},
+    {id: 6, text: 'Downtime/breakdown'},
+    {id: 7, text: 'Decline blockage'},
+    {id: 8, text: 'No Power'},
+    {id: 9, text: 'Mechanical breakdown'},
+  ]);
+  const [zones, setZones] = React.useState([
+    {
+      id: 1,
+      text: 'Activity sheet',
+      items: [{id: 5, text: 'Daily service'}],
+    },
+  ]);
 
-  useEffect(() => {
-    db.transaction(function (txn) {
-      txn.executeSql(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name='Student_Table'",
-        [],
-        function (tx, res) {
-          console.log('item:', res.rows.length);
-          if (res.rows.length == 0) {
-            txn.executeSql('DROP TABLE IF EXISTS Student_Table', []);
-            txn.executeSql(
-              'CREATE TABLE IF NOT EXISTS Student_Table(student_id INTEGER PRIMARY KEY AUTOINCREMENT, student_name VARCHAR(30), student_phone INT(15), student_address VARCHAR(255))',
-              [],
-            );
-          }
-        },
-      );
-    });
-  }, []);
-
-  const insertData = () => {
-    db.transaction(function (tx) {
-      tx.executeSql(
-        'INSERT INTO Student_Table (student_name, student_phone, student_address) VALUES (?,?,?)',
-        [S_Name, S_Phone, S_Address],
-        (tx, results) => {
-          console.log('Results', results.rowsAffected);
-          if (results.rowsAffected > 0) {
-            Alert.alert('Data Inserted Successfully....');
-          } else Alert.alert('Failed....');
-        },
-      );
-    });
-
-    viewStudent();
+  const insertvalue = () => {
+    return Alert.alert('Loading Locations Submitted.....');
   };
-
-  const viewStudent = () => {
-    db.transaction(tx => {
-      tx.executeSql('SELECT * FROM Student_Table', [], (tx, results) => {
-        var temp = [];
-        for (let i = 0; i < results.rows.length; ++i)
-          temp.push(results.rows.item(i));
-        console.log(temp);
-      });
-    });
-  };
-
   return (
     <>
-      <SafeAreaView style={{flex: 1}}>
-        <View style={styles.mainContainer}>
-          <Text style={{fontSize: 24, textAlign: 'center', color: '#000'}}>
-            Insert Data Into SQLite Database
-          </Text>
+      <DragAndDrop
+        style={styles.container}
+        contentContainerStyle={styles.contentContainerStyle}
+        itemKeyExtractor={item => item.id}
+        zoneKeyExtractor={zone => zone.id}
+        zones={zones}
+        items={items}
+        itemsContainerStyle={styles.itemsContainerStyle}
+        zonesContainerStyle={styles.zonesContainerStyle}
+        onMaj={(zones, items) => {
+          setItems(items);
+          setZones(zones);
+        }}
+        itemsInZoneStyle={styles.itemsInZoneStyle}
+        renderItem={item => {
+          return (
+            <View style={styles.dragItemStyle}>
+              <Text style={styles.dragItemTextStyle}>{item.text}</Text>
+            </View>
+          );
+        }}
+        renderZone={(zone, children, hover) => {
+          return (
+            <View
+              style={{
+                ...styles.dragZoneStyle,
+                backgroundColor: hover ? '#E2E2E2' : '#FFF',
+              }}>
+              <Text stylae={styles.dragZoneTextStyle}>{zone.text}</Text>
+              {children}
+            </View>
+          );
+        }}
+      />
 
-          <TextInput
-            style={styles.textInputStyle}
-            onChangeText={text => setName(text)}
-            placeholder="Enter Student Name"
-            value={S_Name}
-          />
-
-          <TextInput
-            style={styles.textInputStyle}
-            onChangeText={text => setPhone(text)}
-            placeholder="Enter Student Phone Number"
-            keyboardType={'numeric'}
-            value={S_Phone}
-          />
-
-          <TextInput
-            style={[styles.textInputStyle, {marginBottom: 20}]}
-            onChangeText={text => setAddress(text)}
-            placeholder="Enter Student Address"
-            value={S_Address}
-          />
-
-          <TouchableOpacity
-            style={styles.touchableOpacity}
-            onPress={insertData}>
-            <Text style={styles.touchableOpacityText}>
-              {' '}
-              Click Here To Insert Data Into SQLite Database{' '}
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+      <Button
+        style={{justifyContent: 'center'}}
+        uppercase="true"
+        textColor={'black'}
+        onPress={insertvalue}>
+        Submit
+      </Button>
     </>
   );
 };
@@ -113,60 +78,56 @@ const Activitysheet = () => {
 export default Activitysheet;
 
 const styles = StyleSheet.create({
-  mainContainer: {
+  container: {
     flex: 1,
-    alignItems: 'center',
-    padding: 10,
+    backgroundColor: '#002333',
   },
-
-  touchableOpacity: {
-    backgroundColor: '#0091EA',
-    alignItems: 'center',
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
+  itemsInZoneStyle: {
     width: '100%',
   },
-
-  touchableOpacityText: {
-    color: '#FFFFFF',
-    fontSize: 23,
-    textAlign: 'center',
-    padding: 8,
+  contentContainerStyle: {
+    padding: 20,
+    paddingTop: 40,
   },
-
-  textInputStyle: {
-    height: 45,
-    width: '90%',
-    textAlign: 'center',
+  itemsContainerStyle: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  zonesContainerStyle: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  dragItemStyle: {
+    borderColor: '#F39200',
     borderWidth: 1,
-    borderColor: '#00B8D4',
-    borderRadius: 7,
-    marginTop: 15,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 5,
+    backgroundColor: '#F5F5F5',
+    padding: 10,
+  },
+  dragItemTextStyle: {
+    color: '#011F3B',
+    fontWeight: '700',
+    textAlign: 'center',
+  },
+  dragZoneStyle: {
+    borderColor: '#F39200',
+    borderWidth: 1,
+    width: '100%',
+    padding: 15,
+    minHeight: 130,
+    marginVertical: 15,
+  },
+  dragZoneTextStyle: {
+    position: 'absolute',
+    opacity: 0.2,
+    zIndex: 0,
+    alignSelf: 'center',
+    top: '50%',
   },
 });
-// import React, { useState } from 'react';
-
-// import {View, Text, StatusBar, TextInput} from 'react-native';
-
-// const Activitysheet = () => {
-
-// const[item,setItem]=useState("");
-
-//   return (
-//     <>
-//       <View>
-//         <StatusBar backgroundColor="red" />
-//         <TextInput
-//         placeholder="Enter your items"
-//         value={item}
-//         onChange={setItem}
-//         style=
-
-//          />
-//       </View>
-//     </>
-//   );
-// };
-
-// export default Activitysheet;

@@ -47,7 +47,16 @@ const Tabscreen1 = ({navigation}) => {
             <Button style={{margin: 5, padding: 5}} mode="contained">
               JUMPO PLOD
             </Button> */}
-            <Text style={styles.text}>Live Mining</Text>
+           
+           <Button mode='outlined'   onPress={() => navigation.navigate('Metstruckplod')} textColor='white' style={{margin:20}}>METS TRUCK PLOD</Button>
+           <Button mode='outlined'   onPress={() => navigation.navigate('CategeoryAfault')} textColor='white' style={{margin:20}}>PRESTART</Button>
+           <Button mode='outlined'   onPress={() => navigation.navigate('Loadinglocations')} textColor='white' style={{margin:20}}>LOADING LOCATIONS</Button>
+
+           <Button mode='outlined'   onPress={() => navigation.navigate('Numberofloads')} textColor='white' style={{margin:20}}>NUMBER OF LOADS</Button>
+
+           <Button mode='outlined'   onPress={() => navigation.navigate('Activitysheet')} textColor='white' style={{margin:20}}>ACTIVITYSHEET</Button>
+
+
           </View>
         </ImageBackground>
       </View>
@@ -68,8 +77,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#DEEFE7',
-    fontSize: 60,
-    lineHeight: 100,
+    fontSize: 40,
+    
     fontWeight: 'bold',
     textAlign: 'center',
   },

@@ -35,7 +35,7 @@ const Sidebar = props => {
                 onPress={() => props.navigation.navigate('Metstruckplod')}
               />
               <DrawerItem
-                label="PRE START CHECK LIST"
+                label="PRESTART"
                 onPress={() => props.navigation.navigate('CategeoryAfault')}
               />
               {/* <DrawerItem
@@ -44,7 +44,7 @@ const Sidebar = props => {
               />
               <DrawerItem
                 label="CATEGEROY C FAULTS"
-                onPress={() => props.navigation.navigate('CategeoryCfault ')}
+                onPress={() => props.navigation.navigate('CategeoryCfault')}
               /> */}
               <DrawerItem
                 label="LOADING_LOCATIONS"
@@ -62,6 +62,20 @@ const Sidebar = props => {
               label="ACTIVITYSHEET"
 
               onPress={()=>props.navigation.navigate('Activitysheet')}
+              
+              />
+               <DrawerItem
+              
+              label="DEVELOPMENTDRILLING"
+
+              onPress={()=>props.navigation.navigate('Developmentdrilling')}
+              
+              />
+              <DrawerItem
+              
+              label="CONSUMABLES"
+
+              onPress={()=>props.navigation.navigate('Consumables')}
               
               />
             </Drawer.Section>

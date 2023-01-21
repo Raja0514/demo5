@@ -6,13 +6,17 @@ import CategeoryAfault from '../pages/CategeoryAfault';
 
 import CategeoryBfault from '../pages/CategeoryBfault';
 
-import CategeoryCfault  from '../pages/CategeoryCfault ';
+import CategeoryCfault from '../pages/CategeoryCfault ';
 
 import Loadinglocations from '../pages/Loadinglocations';
 
 import Numberofloads from '../pages/Numberofloads';
 
 import Activitysheet from '../pages/Activitysheet';
+
+import Developmentdrilling from '../pages/Developmentdrilling';
+
+import Consumables from '../pages/Consumables';
 
 import Drawerscreen1 from '../screen1/Drawerscreen1';
 
@@ -33,7 +37,6 @@ function MyDrawer() {
           name="Metstruckplod"
           component={Metstruckplod}
           options={{headerShown: true}}
-          
         />
         <Drawer.Screen
           name="CategeoryAfault"
@@ -49,7 +52,7 @@ function MyDrawer() {
 
         <Drawer.Screen
           name="CategeoryCfault"
-          component={CategeoryCfault }
+          component={CategeoryCfault}
           options={{headerShown: true}}
         />
         <Drawer.Screen
@@ -58,20 +61,25 @@ function MyDrawer() {
           options={{headerShown: true}}
         />
         <Drawer.Screen
-        
-        name='Numberofloads'
-        component={Numberofloads}
-        options={{headerShown:true}}
+          name="Numberofloads"
+          component={Numberofloads}
+          options={{headerShown: true}}
         />
         <Drawer.Screen
-        
-        name="Activitysheet"
-
-        component={Activitysheet}
-        
-        options={{headerShown:true}}
-        />  
-        
+          name="Activitysheet"
+          component={Activitysheet}
+          options={{headerShown: true}}
+        />
+        <Drawer.Screen
+          name="Developmentdrilling"
+          component={Developmentdrilling}
+          options={{headerShown: true}}
+        />
+         <Drawer.Screen
+          name="Consumables"
+          component={Consumables}
+          options={{headerShown: true}}
+        />
       </Drawer.Navigator>
     </>
   );

@@ -9,7 +9,7 @@ import {
 
 import React, {useState} from 'react';
 
-import {SafeAreaView, ScrollView, StyleSheet, View, Text} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, View, Alert} from 'react-native';
 
 import DropDown from 'react-native-paper-dropdown';
 
@@ -95,6 +95,10 @@ const Loadinglocations = () => {
     {label: 'Low grade', value: 'low grade'},
   ];
 
+  const insertvalue = () => {
+    return Alert.alert('Loading Locations Submitted.....');
+  };
+
   return (
     <Surface style={styles.containerStyle}>
       <SafeAreaView style={styles.safeContainerStyle}>
@@ -173,9 +177,9 @@ const Loadinglocations = () => {
 
           <Button
             mode="outlined"
-            onPress={() => console.log('Pressed')}
             uppercase="true"
-            textColor={'black'}>
+            textColor={'black'}
+            onPress={insertvalue}>
             Submit
           </Button>
         </ScrollView>

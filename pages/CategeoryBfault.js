@@ -11,7 +11,12 @@ import {
 
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 const CategeoryBfault = ({navigation}) => {
-  const [checked, setChecked] = React.useState(false);
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+  const [checked4, setChecked4] = React.useState(false);
+  const [checked5, setChecked5] = React.useState(false);
+  const [checked6, setChecked6] = React.useState(false);
   const [text, setText] = React.useState("");
 
 
@@ -23,18 +28,18 @@ const CategeoryBfault = ({navigation}) => {
             <View style={styles.Container}>
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked1 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked1(!checked1);
                   }}
                 />
 
                 <Text>Gauges & Warning lights </Text>
 
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked2 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked2(!checked2);
                   }}
                 />
                 <Text>Mirrors </Text>
@@ -42,16 +47,16 @@ const CategeoryBfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked3 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked3(!checked3);
                   }}
                 />
                 <Text>Drive Belt Tensions </Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked4 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked4(!checked4);
                   }}
                 />
                 <Text>Water Leaks </Text>
@@ -59,16 +64,16 @@ const CategeoryBfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked5 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked5(!checked5);
                   }}
                 />
                 <Text>Major Oil Leaks </Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked6 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked6(!checked6);
                   }}
                 />
                 <Text>Tyre Condition </Text>

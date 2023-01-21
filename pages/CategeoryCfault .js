@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View,Alert} from 'react-native';
 import {Checkbox, TextInput} from 'react-native-paper';
 import {
   Appbar,
@@ -13,7 +13,18 @@ import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 const CategeoryCfault = ({navigation}) => {
   const [text, setText] = React.useState('');
 
-  const [checked, setChecked] = React.useState(false);
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
+  const [checked4, setChecked4] = React.useState(false);
+  const [checked5, setChecked5] = React.useState(false);
+  const [checked6, setChecked6] = React.useState(false);
+  const [checked7, setChecked7] = React.useState(false);
+
+
+  const insertvalue = () => {
+    return Alert.alert('Prestart Fault Value Submitted.....');
+  };
 
   return (
     <>
@@ -23,9 +34,9 @@ const CategeoryCfault = ({navigation}) => {
             <View style={styles.row}>
               <Checkbox
                 style={{margin: 10}}
-                status={checked ? 'checked' : 'unchecked'}
+                status={checked1 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                  setChecked(!checked);
+                  setChecked1(!checked1);
                 }}
               />
 
@@ -33,9 +44,9 @@ const CategeoryCfault = ({navigation}) => {
 
               <Checkbox
                 style={{margin: 10}}
-                status={checked ? 'checked' : 'unchecked'}
+                status={checked2 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                  setChecked(!checked);
+                  setChecked2(!checked2);
                 }}
               />
               <Text>Wipers/Washers </Text>
@@ -44,16 +55,16 @@ const CategeoryCfault = ({navigation}) => {
             <View style={styles.row}>
               <Checkbox
                 style={{margin: 10}}
-                status={checked ? 'checked' : 'unchecked'}
+                status={checked3 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                  setChecked(!checked);
+                  setChecked3(!checked3);
                 }}
               />
               <Text>First Aid Kit </Text>
               <Checkbox
-                status={checked ? 'checked' : 'unchecked'}
+                status={checked4 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                  setChecked(!checked);
+                  setChecked4(!checked4);
                 }}
               />
               <Text>Damage</Text>
@@ -62,26 +73,26 @@ const CategeoryCfault = ({navigation}) => {
             <View style={styles.row}>
               <Checkbox
                 style={{margin: 10}}
-                status={checked ? 'checked' : 'unchecked'}
+                status={checked5 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                  setChecked(!checked);
+                  setChecked5(!checked5);
                 }}
               />
               <Text>Vehicle Housekeeping </Text>
               <Checkbox
                 style={{margin: 10}}
-                status={checked ? 'checked' : 'unchecked'}
+                status={checked6 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                  setChecked(!checked);
+                  setChecked6(!checked6);
                 }}
               />
               <Text>Air conditioner </Text>
 
               <Checkbox
                 style={{margin: 10}}
-                status={checked ? 'checked' : 'unchecked'}
+                status={checked7 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                  setChecked(!checked);
+                  setChecked7(!checked7);
                 }}
               />
               <Text>Fuel Level </Text>
@@ -107,7 +118,8 @@ const CategeoryCfault = ({navigation}) => {
             uppercase={true}
             mode="outlined"
             textColor={'black'}
-            style={{margin: 10}}>
+            style={{margin: 10}}
+            onPress={insertvalue}>
             Submit
           </Button>
         </SafeAreaView>

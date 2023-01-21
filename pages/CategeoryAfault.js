@@ -1,13 +1,32 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
+
 import {Text, View} from 'react-native';
 import {Checkbox} from 'react-native-paper';
-import {Surface, Button,TextInput} from 'react-native-paper';
+import {Surface, Button, TextInput} from 'react-native-paper';
 
 import {SafeAreaView, StyleSheet, ScrollView} from 'react-native';
 
 const CategeoryAfault = ({navigation}) => {
-  const [checked, setChecked] = React.useState(false);
-  const [text, setText] = React.useState("");
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
+  const [checked4, setChecked4] = useState(false);
+  const [checked5, setChecked5] = useState(false);
+  const [checked6, setChecked6] = useState(false);
+  const [checked7, setChecked7] = useState(false);
+  const [checked8, setChecked8] = useState(false);
+  const [checked9, setChecked9] = useState(false);
+  const [checked10, setChecked10] = useState(false);
+  const [checked11, setChecked11] = useState(false);
+  const [checked12, setChecked12] = useState(false);
+  const [checked13, setChecked13] = useState(false);
+  const [checked14, setChecked14] = useState(false);
+  const [checked15, setChecked15] = useState(false);
+  const [checked16, setChecked16] = useState(false);
+  const [checked17, setChecked17] = useState(false);
+  const [checked18, setChecked18] = useState(false);
+
+  const [text, setText] = useState('');
 
   return (
     <>
@@ -17,17 +36,17 @@ const CategeoryAfault = ({navigation}) => {
             <View style={styles.Container}>
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked1 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked1(!checked1);
                   }}
                 />
                 <Text>Engine Oil level</Text>
 
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked2 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked2(!checked2);
                   }}
                 />
                 <Text>Engine Coolant Level </Text>
@@ -35,16 +54,16 @@ const CategeoryAfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked3 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked3(!checked3);
                   }}
                 />
                 <Text>Power Steering Fluid Level </Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked18 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked18(!checked18);
                   }}
                 />
                 <Text>Fuel Leaks </Text>
@@ -52,16 +71,16 @@ const CategeoryAfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked4 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked4(!checked4);
                   }}
                 />
                 <Text>Fire Extinguisher </Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked5 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked5(!checked5);
                   }}
                 />
                 <Text>Locking Pins on Tray </Text>
@@ -69,16 +88,16 @@ const CategeoryAfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked6 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked6(!checked6);
                   }}
                 />
                 <Text>Steering</Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked7 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked7(!checked7);
                   }}
                 />
                 <Text>Tyre Rims, Wheel Nuts </Text>
@@ -86,16 +105,16 @@ const CategeoryAfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked8 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked8(!checked8);
                   }}
                 />
                 <Text>Seat Belts </Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked9 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked9(!checked9);
                   }}
                 />
                 <Text>Flag (Opencut only) </Text>
@@ -103,16 +122,16 @@ const CategeoryAfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked10 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked10(!checked10);
                   }}
                 />
                 <Text>Foot Brake </Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked11 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked11(!checked11);
                   }}
                 />
                 <Text>Park Brake </Text>
@@ -120,16 +139,16 @@ const CategeoryAfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked12 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked12(!checked12);
                   }}
                 />
                 <Text>Hom</Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked13 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked13(!checked13);
                   }}
                 />
                 <Text>Brake & Indicator Lights </Text>
@@ -137,16 +156,16 @@ const CategeoryAfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked14 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked14(!checked14);
                   }}
                 />
                 <Text>Lights</Text>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked15 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked15(!checked15);
                   }}
                 />
                 <Text>Flashing light </Text>
@@ -154,16 +173,17 @@ const CategeoryAfault = ({navigation}) => {
 
               <View style={styles.row}>
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked16 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked16(!checked16);
                   }}
                 />
                 <Text>Reversing Alarm </Text>
+
                 <Checkbox
-                  status={checked ? 'checked' : 'unchecked'}
+                  status={checked17 ? 'checked' : 'unchecked'}
                   onPress={() => {
-                    setChecked(!checked);
+                    setChecked17(!checked17);
                   }}
                 />
                 <Text>2-Way radio </Text>
@@ -178,17 +198,16 @@ const CategeoryAfault = ({navigation}) => {
               onChangeText={text => setText(text)}
               mode="outlined"
             />
-           
+            <View style={styles.spacerStyle} />
+
+            <View style={styles.spacerStyle} />
+
             <Button
               mode="outlined"
-              uppercase={true}
               textColor={'black'}
-              style={{marginTop: 40}}
-              onPress={() =>
-                navigation.navigate('CategeoryBfault')
-              }
-              
-              >
+              style={{margin: 10}}
+              uppercase={true}
+              onPress={() => navigation.navigate('CategeoryBfault')}>
               Next
             </Button>
           </ScrollView>
