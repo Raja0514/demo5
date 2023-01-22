@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View,Alert} from 'react-native';
+import {Text, View,Alert,ScrollView} from 'react-native';
 import {Checkbox, TextInput} from 'react-native-paper';
 import {
   Appbar,
@@ -30,6 +30,9 @@ const CategeoryCfault = ({navigation}) => {
     <>
       <Surface style={styles.containerStyle}>
         <SafeAreaView style={styles.safeContainerStyle}>
+          <ScrollView>
+
+          
           <View style={styles.Container}>
             <View style={styles.row}>
               <Checkbox
@@ -98,13 +101,16 @@ const CategeoryCfault = ({navigation}) => {
               <Text>Fuel Level </Text>
             </View>
           </View>
-
+          <View style={styles.spacerStyle} />
+          <View style={styles.spacerStyle} />
+          <View style={styles.spacerStyle} />
           <TextInput
             mode="outlined"
             multiline
             label="Type your Actions......"
             value={text}
             onChangeText={text => setText(text)}></TextInput>
+          <View style={styles.spacerStyle} />
           <View style={styles.spacerStyle} />
           <Button
             uppercase={true}
@@ -114,6 +120,8 @@ const CategeoryCfault = ({navigation}) => {
             onPress={() => navigation.navigate('CategeoryBfault')}>
             Previous
           </Button>
+          <View style={styles.spacerStyle} />
+          
           <Button
             uppercase={true}
             mode="outlined"
@@ -122,6 +130,7 @@ const CategeoryCfault = ({navigation}) => {
             onPress={insertvalue}>
             Submit
           </Button>
+          </ScrollView>
         </SafeAreaView>
       </Surface>
     </>
@@ -137,11 +146,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#002333',
   },
   safeContainerStyle: {
-    flex: 0.7,
+    flex: 1,
     marginTop: 20,
     margin: 20,
     backgroundColor: '#FFFFFF',
-    padding: 10,
+    padding: 20,
   },
   Container: {
     flex: 1,

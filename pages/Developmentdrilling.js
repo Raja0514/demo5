@@ -206,6 +206,8 @@ const Developmentdrilling = () => {
             <View style={styles.spacerStyle} />
 
             <View style={styles.spacerStyle} />
+            <View style={styles.spacerStyle} />
+            <View style={styles.spacerStyle} />
 
             <Button
             
@@ -235,9 +237,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   safeContainerStyle: {
-    flex: 0.9,
+    flex: 1,
     margin: 20,
     backgroundColor: '#FFFFFF',
+    paddingTop:30,
     padding: 10,
     marginTop: 30,
   },

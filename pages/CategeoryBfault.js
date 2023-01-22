@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View,ScrollView} from 'react-native';
 import {Checkbox,TextInput} from 'react-native-paper';
 import {
   Appbar,
@@ -25,6 +25,9 @@ const CategeoryBfault = ({navigation}) => {
       <ThemeProvider>
         <Surface style={styles.containerStyle}>
           <SafeAreaView style={styles.safeContainerStyle}>
+            <ScrollView>
+
+            
             <View style={styles.Container}>
               <View style={styles.row}>
                 <Checkbox
@@ -80,13 +83,16 @@ const CategeoryBfault = ({navigation}) => {
               </View>
             </View>
             <View style={styles.spacerStyle} />
-
+            <View style={styles.spacerStyle} />
+            <View style={styles.spacerStyle} />  
             <TextInput
               label="Enter Your Actions...."
               value={text}
               onChangeText={text => setText(text)}
               mode="outlined"
             />
+             <View style={styles.spacerStyle} />
+             <View style={styles.spacerStyle} />
              <View style={styles.spacerStyle} />
             <Button
               mode="outlined"
@@ -96,6 +102,8 @@ const CategeoryBfault = ({navigation}) => {
               onPress={() => navigation.navigate('CategeoryAfault')}>
               Previous
             </Button>
+            <View style={styles.spacerStyle} />
+            <View style={styles.spacerStyle} />
             <Button
               mode="outlined"
               textColor={'black'}
@@ -104,6 +112,7 @@ const CategeoryBfault = ({navigation}) => {
               onPress={() => navigation.navigate('CategeoryCfault')}>
               Next
             </Button>
+            </ScrollView>
           </SafeAreaView>
         </Surface>
       </ThemeProvider>
@@ -120,11 +129,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#002333',
   },
   safeContainerStyle: {
-    flex: 0.5,
+    flex: 1,
     marginTop: 20,
     margin: 20,
     backgroundColor: '#FFFFFF',
-    padding: 10,
+    padding: 30,
+    marginTop:50
   },
   Container: {
     flex: 1,

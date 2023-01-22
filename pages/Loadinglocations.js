@@ -102,7 +102,7 @@ const Loadinglocations = () => {
   return (
     <Surface style={styles.containerStyle}>
       <SafeAreaView style={styles.safeContainerStyle}>
-        <ScrollView style={styles.scrollView}>
+        <ScrollView>
           <DropDown
             label={'From Location'}
             mode={'outlined'}
@@ -174,6 +174,7 @@ const Loadinglocations = () => {
 
           <View style={styles.spacerStyle} />
           <View style={styles.spacerStyle} />
+          <View style={styles.spacerStyle} />
 
           <Button
             mode="outlined"
@@ -182,6 +183,8 @@ const Loadinglocations = () => {
             onPress={insertvalue}>
             Submit
           </Button>
+          <View style={styles.spacerStyle} />
+          <View style={styles.spacerStyle} />
         </ScrollView>
       </SafeAreaView>
     </Surface>
@@ -201,7 +204,7 @@ const styles = StyleSheet.create({
   },
 
   safeContainerStyle: {
-    flex: 0.8,
+    flex: 1,
     margin: 20,
     marginTop: 30,
     justifyContent: 'center',

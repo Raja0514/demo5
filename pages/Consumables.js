@@ -395,8 +395,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   safeContainerStyle: {
-    flex: 0.9,
-    margin: 20,
+    flex: 1,
+    margin: 10,
     backgroundColor: '#FFFFFF',
     padding: 10,
     marginTop: 30,

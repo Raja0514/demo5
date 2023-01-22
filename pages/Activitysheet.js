@@ -25,7 +25,7 @@ const Activitysheet = () => {
   ]);
 
   const insertvalue = () => {
-    return Alert.alert('Loading Locations Submitted.....');
+    return Alert.alert('Today Activity Submitted.....');
   };
   return (
     <>
@@ -52,25 +52,28 @@ const Activitysheet = () => {
         }}
         renderZone={(zone, children, hover) => {
           return (
-            <View
-              style={{
-                ...styles.dragZoneStyle,
-                backgroundColor: hover ? '#E2E2E2' : '#FFF',
-              }}>
-              <Text stylae={styles.dragZoneTextStyle}>{zone.text}</Text>
-              {children}
-            </View>
+            <>
+              <View
+                style={{
+                  ...styles.dragZoneStyle,
+                  backgroundColor: hover ? '#E2E2E2' : '#FFF',
+                }}>
+                <Text stylae={styles.dragZoneTextStyle}>{zone.text}</Text>
+                {children}
+              </View>
+              <View style={{marginLeft:125}}>
+                <Button
+                  uppercase="true"
+                  textColor="white"
+                  onPress={insertvalue}
+                  mode="outlined"> Submit
+                 
+                </Button>
+              </View>
+            </>
           );
         }}
       />
-
-      <Button
-        style={{justifyContent: 'center'}}
-        uppercase="true"
-        textColor={'black'}
-        onPress={insertvalue}>
-        Submit
-      </Button>
     </>
   );
 };
