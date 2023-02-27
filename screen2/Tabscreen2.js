@@ -26,12 +26,9 @@ const Tabscreen2 = ({navigation}) => {
           </TouchableOpacity> */}
         {/* </View> */}
 
-        <ImageBackground
-          source={require('../Images/home.jpg')}
-          resizeMode="cover"
-          style={styles.image}>
+        
           <View
-            style={{flex: 1, justifyContent: 'center'}}>
+            style={{flex: 1, justifyContent: 'center',backgroundColor:'#2c2c54'}}>
               
             {/* <Button onPress={navigation.openDrawer()}  style={{margin: 5, padding: 5}} mode="contained">
               METS TRUCK PLOD
@@ -45,12 +42,12 @@ const Tabscreen2 = ({navigation}) => {
              
            
 
-            <Button mode='outlined'   onPress={() => navigation.navigate('Developmentdrilling')} textColor='white' style={{margin:20}}>DEVELOPMENTDRILLING</Button>
+            <Button mode='outlined'  textColor='white'  onPress={() => navigation.navigate('Developmentdrilling')}  style={{margin:20}}>DEVELOPMENTDRILLING</Button>
 
-            <Button mode='outlined'   onPress={() => navigation.navigate('Consumables')} textColor='white' style={{margin:20}}>CONSUMABLES</Button>
+            <Button mode='outlined' textColor='white'  onPress={() => navigation.navigate('Consumables')}  style={{margin:20}}>CONSUMABLES</Button>
             
           </View>
-        </ImageBackground>
+        
       </View>
     </>
   );

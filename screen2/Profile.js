@@ -18,6 +18,8 @@ import Developmentdrilling from '../pages/Developmentdrilling';
 
 import Consumables from '../pages/Consumables';
 
+import Test from '../pages/Test';
+
 import Drawerscreen1 from '../screen1/Drawerscreen1';
 
 import Sidebar from '../screen1/Sidebar';
@@ -41,7 +43,15 @@ function MyDrawer() {
         <Drawer.Screen
           name="CategeoryAfault"
           component={CategeoryAfault}
-          options={{headerShown: true}}
+          options={{
+            headerShown: true,
+           
+
+            
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
 
         <Drawer.Screen
@@ -75,9 +85,14 @@ function MyDrawer() {
           component={Developmentdrilling}
           options={{headerShown: true}}
         />
-         <Drawer.Screen
+        <Drawer.Screen
           name="Consumables"
           component={Consumables}
+          options={{headerShown: true}}
+        />
+        <Drawer.Screen
+          name="Test"
+          component={Test}
           options={{headerShown: true}}
         />
       </Drawer.Navigator>

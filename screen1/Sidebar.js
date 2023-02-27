@@ -35,17 +35,17 @@ const Sidebar = props => {
                 onPress={() => props.navigation.navigate('Metstruckplod')}
               />
               <DrawerItem
-                label="PRESTART"
+                label="CATEGEROY A FAULTS"
                 onPress={() => props.navigation.navigate('CategeoryAfault')}
               />
-              {/* <DrawerItem
+              <DrawerItem
                 label="CATEGEROY B FAULTS"
                 onPress={() => props.navigation.navigate('CategeoryBfault')}
               />
               <DrawerItem
                 label="CATEGEROY C FAULTS"
                 onPress={() => props.navigation.navigate('CategeoryCfault')}
-              /> */}
+              />
               <DrawerItem
                 label="LOADING_LOCATIONS"
                 onPress={() => props.navigation.navigate('Loadinglocations')}
@@ -78,8 +78,18 @@ const Sidebar = props => {
               onPress={()=>props.navigation.navigate('Consumables')}
               
               />
+
+               <DrawerItem
+              
+              label="TEST"
+
+              onPress={()=>props.navigation.navigate('Test')}
+              
+              />
             </Drawer.Section>
+
             <Drawer.Section title="Prefernces">
+
               <TouchableRipple>
                 <View style={styles.prefernces}>
                   <Text>Dark Mode</Text>

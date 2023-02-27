@@ -311,6 +311,7 @@ const Metstruckplod = () => {
               mode={'outlined'}
               textColor={'black'}
               uppercase={true}
+              style={{margin:10,padding:5}}
               onPress={insertData}>
               Submit
             </Button>
@@ -326,17 +327,20 @@ export default Metstruckplod;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#002333',
+    backgroundColor: '#2c2c54',
+    justifyContent:'center',
+    padding:10
   },
   spacerStyle: {
     marginBottom: 15,
   },
   safeContainerStyle: {
-    flex: 0.9,
-    margin: 20,
-    backgroundColor: '#FFFFFF',
-    padding: 10,
+    
+    
+    backgroundColor: 'white',
+    padding: 20,
     marginTop: 30,
+    borderRadius:30
   },
   scrollView: {
     marginHorizontal: 20,

@@ -372,6 +372,7 @@ const Consumables = () => {
               mode={'outlined'}
               textColor={'black'}
               uppercase={true}
+              style={{margin:10,padding:5}}
               onPress={() => {
                 alert('Consumables Item Submitted....');
               }}>
@@ -389,17 +390,19 @@ export default Consumables;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#002333',
+    backgroundColor: '#2c2c54',
+    justifyContent:'center'
   },
   spacerStyle: {
     marginBottom: 15,
   },
   safeContainerStyle: {
-    flex: 1,
+    
     margin: 10,
     backgroundColor: '#FFFFFF',
     padding: 10,
-    marginTop: 30,
+  
+    borderRadius:30
   },
   scrollView: {
     marginHorizontal: 20,

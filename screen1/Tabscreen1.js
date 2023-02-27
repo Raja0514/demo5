@@ -33,12 +33,9 @@ const Tabscreen1 = ({navigation}) => {
           </TouchableOpacity> */}
         {/* </View> */}
 
-        <ImageBackground
-          source={require('../Images/home.jpg')}
-          resizeMode="cover"
-          style={styles.image}>
+      
           <View
-            style={{flex: 1, justifyContent: 'center'}}>
+            style={{flex: 1, justifyContent: 'center',backgroundColor:'#2c2c54'}}>
               
             {/* <Button onPress={navigation.openDrawer()}  style={{margin: 5, padding: 5}} mode="contained">
               METS TRUCK PLOD
@@ -58,7 +55,7 @@ const Tabscreen1 = ({navigation}) => {
 
 
           </View>
-        </ImageBackground>
+
       </View>
     </>
   );

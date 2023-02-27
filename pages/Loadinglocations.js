@@ -180,6 +180,7 @@ const Loadinglocations = () => {
             mode="outlined"
             uppercase="true"
             textColor={'black'}
+            style={{margin:10,padding:5}}
             onPress={insertvalue}>
             Submit
           </Button>
@@ -196,7 +197,8 @@ export default Loadinglocations;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#002333',
+    backgroundColor: '#2c2c54',
+    justifyContent:'center'
   },
 
   spacerStyle: {
@@ -204,11 +206,12 @@ const styles = StyleSheet.create({
   },
 
   safeContainerStyle: {
-    flex: 1,
+    
     margin: 20,
     marginTop: 30,
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
-    padding: 20,
+    padding: 30,
+    borderRadius:30
   },
 });

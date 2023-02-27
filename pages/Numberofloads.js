@@ -7,7 +7,7 @@ const Numberofloads = () => {
 
   return (
     <>
-      <View style={{flex: 1, justifyContent: 'center',alignItems:'center',backgroundColor:'#002333'}}>
+      <View style={{flex: 1, justifyContent: 'center',alignItems:'center',backgroundColor:'#2c2c54'}}>
         <Text style={{textAlign: 'center', margin: 20,fontSize:30,color:'white'}}>
           Loads : {counter}
         </Text>

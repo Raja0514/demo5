@@ -83,7 +83,7 @@ export default Activitysheet;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#002333',
+    backgroundColor: '#2c2c54',
   },
   itemsInZoneStyle: {
     width: '100%',

@@ -15,7 +15,7 @@ function Home({navigation}) {
   return (
     <>
       <View style={styles.container}>
-      <ActivityIndicator animating={true} color={'#B4BEC9'} size={'large'} />
+      <ActivityIndicator animating={true} color={'white'} size={'large'} />
 
       </View>
     </>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor:'#159A9C',
+    backgroundColor:'#2c2c54',
     alignItems: 'center',
   },
   text: {

@@ -206,10 +206,11 @@ const Developmentdrilling = () => {
             <View style={styles.spacerStyle} />
 
             <View style={styles.spacerStyle} />
-            <View style={styles.spacerStyle} />
-            <View style={styles.spacerStyle} />
+      
 
             <Button
+
+            style={{margin:10,padding:5}}
             
             onPress={() => {
               alert('Developmentdrilling Item Submitted....');
@@ -231,18 +232,20 @@ export default Developmentdrilling;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    backgroundColor: '#002333',
+    backgroundColor: '#2c2c54',
+    justifyContent:'center'
   },
   spacerStyle: {
     marginBottom: 15,
   },
   safeContainerStyle: {
-    flex: 1,
-    margin: 20,
+    
+    margin: 10,
     backgroundColor: '#FFFFFF',
-    paddingTop:30,
-    padding: 10,
-    marginTop: 30,
+  
+    padding: 20,
+    borderRadius:30
+  
   },
   scrollView: {
     marginHorizontal: 20,
