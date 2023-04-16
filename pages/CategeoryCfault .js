@@ -1,15 +1,9 @@
 import * as React from 'react';
 import {Text, View, Alert, ScrollView} from 'react-native';
 import {Checkbox, TextInput} from 'react-native-paper';
-import {
-  Appbar,
-  Provider,
-  Surface,
-  ThemeProvider,
-  Button,
-} from 'react-native-paper';
+import {Surface, Button} from 'react-native-paper';
 
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 const CategeoryCfault = ({navigation}) => {
   const [text, setText] = React.useState('');
 
@@ -32,7 +26,7 @@ const CategeoryCfault = ({navigation}) => {
     }
   };
 
-  console.log(testingarray)
+  console.log(testingarray);
 
   return (
     <>
@@ -48,7 +42,7 @@ const CategeoryCfault = ({navigation}) => {
                     setChecked1(!checked1);
                   }}
                   uncheckedColor="red"
-                  color='green'
+                  color="green"
                 />
 
                 <Text>Minor Oil Leaks </Text>
@@ -60,7 +54,7 @@ const CategeoryCfault = ({navigation}) => {
                     setChecked2(!checked2);
                   }}
                   uncheckedColor="red"
-                  color='green'
+                  color="green"
                 />
                 <Text>Wipers/Washers </Text>
               </View>
@@ -73,7 +67,7 @@ const CategeoryCfault = ({navigation}) => {
                     setChecked3(!checked3);
                   }}
                   uncheckedColor="red"
-                  color='green'
+                  color="green"
                 />
                 <Text>First Aid Kit </Text>
                 <Checkbox
@@ -82,7 +76,7 @@ const CategeoryCfault = ({navigation}) => {
                     setChecked4(!checked4);
                   }}
                   uncheckedColor="red"
-                  color='green'
+                  color="green"
                 />
                 <Text>Damage</Text>
               </View>
@@ -95,7 +89,7 @@ const CategeoryCfault = ({navigation}) => {
                     setChecked5(!checked5);
                   }}
                   uncheckedColor="red"
-                  color='green'
+                  color="green"
                 />
                 <Text>Vehicle Housekeeping </Text>
                 <Checkbox
@@ -105,7 +99,7 @@ const CategeoryCfault = ({navigation}) => {
                     setChecked6(!checked6);
                   }}
                   uncheckedColor="red"
-                  color='green'
+                  color="green"
                 />
                 <Text>Air conditioner </Text>
 
@@ -116,7 +110,7 @@ const CategeoryCfault = ({navigation}) => {
                     setChecked7(!checked7);
                   }}
                   uncheckedColor="red"
-                  color='green'
+                  color="green"
                 />
                 <Text>Fuel Level </Text>
               </View>
@@ -129,18 +123,16 @@ const CategeoryCfault = ({navigation}) => {
               multiline
               label="Type your Actions......"
               value={text}
-              style={{margin:10,padding:5}}
+              style={{margin: 10, padding: 5}}
               onChangeText={text => setText(text)}></TextInput>
             <View style={styles.spacerStyle} />
             <View style={styles.spacerStyle} />
-            
-      
 
             <Button
               uppercase={true}
               mode="outlined"
               textColor={'black'}
-              style={{margin:10,padding:5}}
+              style={{margin: 10, padding: 5}}
               onPress={Click}>
               Submit
             </Button>
@@ -156,20 +148,17 @@ export default CategeoryCfault;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    justifyContent:'center',
+    justifyContent: 'center',
     backgroundColor: '#2c2c54',
   },
   safeContainerStyle: {
-    
     marginTop: 20,
     margin: 10,
     backgroundColor: '#FFFFFF',
     padding: 20,
-    borderRadius:40
+    borderRadius: 40,
   },
-  Container: {
-    
-  },
+  Container: {},
   row: {
     flexDirection: 'row',
     flexWrap: 'wrap',

@@ -1,14 +1,6 @@
 import {Surface, TextInput, Button} from 'react-native-paper';
 import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, View, ScrollView, Text} from 'react-native';
 import DropDown from 'react-native-paper-dropdown';
 
 const Consumables = () => {
@@ -372,10 +364,7 @@ const Consumables = () => {
               mode={'outlined'}
               textColor={'black'}
               uppercase={true}
-              style={{margin:10,padding:5}}
-              onPress={() => {
-                alert('Consumables Item Submitted....');
-              }}>
+              style={{margin: 10, padding: 5}}>
               Submit
             </Button>
           </ScrollView>
@@ -391,18 +380,17 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     backgroundColor: '#2c2c54',
-    justifyContent:'center'
+    justifyContent: 'center',
   },
   spacerStyle: {
     marginBottom: 15,
   },
   safeContainerStyle: {
-    
     margin: 10,
     backgroundColor: '#FFFFFF',
     padding: 10,
-  
-    borderRadius:30
+
+    borderRadius: 30,
   },
   scrollView: {
     marginHorizontal: 20,

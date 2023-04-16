@@ -1,5 +1,5 @@
 import {Surface, TextInput, Button} from 'react-native-paper';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,17 +7,11 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import DropDown from 'react-native-paper-dropdown';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-import {openDatabase} from 'react-native-sqlite-storage';
-
-var db = openDatabase({name: 'Truckplods8.db'});
-
 const Metstruckplod = () => {
-
   const [showDropDown, setShowDropDown] = useState(false);
 
   const [showDropDown1, setShowDropDown1] = useState(false);
@@ -27,7 +21,6 @@ const Metstruckplod = () => {
   const [showDropDown3, setShowDropDown3] = useState(false);
 
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-
 
   const [truck, setTruck] = useState('');
 
@@ -42,53 +35,6 @@ const Metstruckplod = () => {
   const [shift, setShift] = useState('');
 
   const [crew, setCrew] = useState('');
-
-  useEffect(() => {
-    db.transaction(function (txn) {
-      txn.executeSql(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name='user_truckdetails0'",
-        [],
-        function (tx, res) {
-          console.log('item:', res.rows.length);
-          if (res.rows.length == 0) {
-            txn.executeSql('DROP TABLE IF EXISTS user_truckdetails0', []);
-            txn.executeSql(
-              'CREATE TABLE IF NOT EXISTS user_truckdetails0(operator_id INTEGER PRIMARY KEY AUTOINCREMENT,Truck_number VARCHAR(25),Engine_hours INT(15),Date DATE,operator_name VARCHAR(25),Hours_worked VARCHAR(30),shift VARCHAR(25),crew VARCHAR(30))',
-              [],
-            );
-          }
-        },
-      );
-    });
-  }, []);
-
-  const insertData = () => {
-    db.transaction(function (tx) {
-      tx.executeSql(
-        'INSERT INTO user_truckdetails0(Truck_number,Engine_hours,Date,operator_name,Hours_worked,shift,crew) VALUES (?,?,?,?,?,?,?)',
-        [truck, text,selectedDate,text1,hour, shift, crew],
-        (tx, results) => {
-          console.log('Results', results.rowsAffected);
-          if (results.rowsAffected > 0) {
-            Alert.alert('Truck Details Added Successfully.....');
-          } else Alert.alert('Failed....');
-        },
-      );
-    });
-
-    truckData();
-  };
-
-  const truckData = () => {
-    db.transaction(tx => {
-      tx.executeSql('SELECT * FROM user_truckdetails0', [], (tx, results) => {
-        var temp = [];
-        for (let i = 0; i < results.rows.length; ++i)
-          temp.push(results.rows.item(i));
-        console.log(temp);
-      });
-    });
-  };
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -311,8 +257,7 @@ const Metstruckplod = () => {
               mode={'outlined'}
               textColor={'black'}
               uppercase={true}
-              style={{margin:10,padding:5}}
-              onPress={insertData}>
+              style={{margin: 10, padding: 5}}>
               Submit
             </Button>
           </ScrollView>
@@ -328,19 +273,17 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     backgroundColor: '#2c2c54',
-    justifyContent:'center',
-    padding:10
+    justifyContent: 'center',
+    padding: 10,
   },
   spacerStyle: {
     marginBottom: 15,
   },
   safeContainerStyle: {
-    
-    
     backgroundColor: 'white',
     padding: 20,
     marginTop: 30,
-    borderRadius:30
+    borderRadius: 30,
   },
   scrollView: {
     marginHorizontal: 20,

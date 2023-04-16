@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {
   Surface,
   Button,
@@ -12,6 +11,7 @@ import {
 import {SafeAreaView, StyleSheet, ScrollView, Text, View} from 'react-native';
 
 const CategeoryBfault = () => {
+  
   const [checked1, setChecked1] = React.useState(true);
   const [checked2, setChecked2] = React.useState(true);
   const [checked3, setChecked3] = React.useState(true);

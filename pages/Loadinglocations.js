@@ -1,11 +1,4 @@
-import {
-  Appbar,
-  Provider,
-  Surface,
-  ThemeProvider,
-  TextInput,
-  Button,
-} from 'react-native-paper';
+import {Surface, Button} from 'react-native-paper';
 
 import React, {useState} from 'react';
 
@@ -180,7 +173,7 @@ const Loadinglocations = () => {
             mode="outlined"
             uppercase="true"
             textColor={'black'}
-            style={{margin:10,padding:5}}
+            style={{margin: 10, padding: 5}}
             onPress={insertvalue}>
             Submit
           </Button>
@@ -198,7 +191,7 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     backgroundColor: '#2c2c54',
-    justifyContent:'center'
+    justifyContent: 'center',
   },
 
   spacerStyle: {
@@ -206,12 +199,11 @@ const styles = StyleSheet.create({
   },
 
   safeContainerStyle: {
-    
     margin: 20,
     marginTop: 30,
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
     padding: 30,
-    borderRadius:30
+    borderRadius: 30,
   },
 });

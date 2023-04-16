@@ -1,15 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import {
-  Avatar,
-  Title,
-  Caption,
-  Drawer,
-  Text,
-  TouchableRipple,
-  Switch,
-} from 'react-native-paper';
+import {Avatar, Title, Caption, Drawer} from 'react-native-paper';
 
 const Sidebar = props => {
   return (
@@ -18,7 +10,7 @@ const Sidebar = props => {
         <DrawerContentScrollView {...props}>
           <View style={styles.container}>
             <View style={[styles.userinfo, {flexDirection: 'row'}]}>
-              <View style={{marginTop: 15,marginLeft:10}}>
+              <View style={{marginTop: 15, marginLeft: 10}}>
                 <Avatar.Image source={require('../Images/user.jpg')} />
               </View>
 
@@ -50,61 +42,18 @@ const Sidebar = props => {
                 label="LOADING_LOCATIONS"
                 onPress={() => props.navigation.navigate('Loadinglocations')}
               />
-              <DrawerItem
-              
-              label="NUMBER OF LOADS"
 
-              onPress={()=>props.navigation.navigate('Numberofloads')}
-              
+              <DrawerItem
+                label="DEVELOPMENTDRILLING"
+                onPress={() => props.navigation.navigate('Developmentdrilling')}
               />
               <DrawerItem
-              
-              label="ACTIVITYSHEET"
-
-              onPress={()=>props.navigation.navigate('Activitysheet')}
-              
+                label="CONSUMABLES"
+                onPress={() => props.navigation.navigate('Consumables')}
               />
-               <DrawerItem
-              
-              label="DEVELOPMENTDRILLING"
-
-              onPress={()=>props.navigation.navigate('Developmentdrilling')}
-              
-              />
-              <DrawerItem
-              
-              label="CONSUMABLES"
-
-              onPress={()=>props.navigation.navigate('Consumables')}
-              
-              />
-
-               <DrawerItem
-              
-              label="TEST"
-
-              onPress={()=>props.navigation.navigate('Test')}
-              
-              />
-            </Drawer.Section>
-
-            <Drawer.Section title="Prefernces">
-
-              <TouchableRipple>
-                <View style={styles.prefernces}>
-                  <Text>Dark Mode</Text>
-                  <Switch />
-                </View>
-              </TouchableRipple>
             </Drawer.Section>
           </View>
         </DrawerContentScrollView>
-
-        {/* Logout */}
-
-        <Drawer.Section style={styles.bottomDrawer}>
-          <Drawer.Item label="Sign Out " onPress={() => {}} />
-        </Drawer.Section>
       </View>
     </>
   );

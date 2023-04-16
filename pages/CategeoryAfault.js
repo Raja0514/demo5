@@ -23,7 +23,6 @@ const CategeoryAfault = ({navigation}) => {
   const [checked16, setChecked16] = useState(true);
   const [checked17, setChecked17] = useState(true);
   const [checked18, setChecked18] = useState(true);
-
   const [text, setText] = useState('');
 
   return (
@@ -259,8 +258,7 @@ const styles = StyleSheet.create({
     flex: 1,
 
     backgroundColor: '#2c2c54',
-    justifyContent:'center',
-    
+    justifyContent: 'center',
   },
   safeContainerStyle: {
     marginTop: 20,

@@ -13,7 +13,7 @@ function MyTabs() {
       initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
-        headerShown:true
+        headerShown: true,
       }}>
       <Tab.Screen
         name="Home"
@@ -23,10 +23,13 @@ function MyTabs() {
 
           tabBarLabel: 'METS TRUCK PLOD',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="truck-outline" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="truck-outline"
+              color={color}
+              size={size}
+            />
           ),
         }}
-        
       />
       <Tab.Screen
         name="Profile"
@@ -36,7 +39,11 @@ function MyTabs() {
 
           tabBarLabel: 'JUMPO PLOD',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="truck-outline" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="truck-outline"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
