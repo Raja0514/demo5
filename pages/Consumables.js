@@ -1,5 +1,5 @@
 import {Surface, TextInput, Button} from 'react-native-paper';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, View, ScrollView, Text} from 'react-native';
 import DropDown from 'react-native-paper-dropdown';
 
